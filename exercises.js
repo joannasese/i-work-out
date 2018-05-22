@@ -143,3 +143,34 @@ function checkUsersValid(goodUsers) {
 
 
   module.exports = checkUsersValid
+
+
+//   # Task
+//
+// Given an Array of strings, use Array#reduce to create an object that contains the number of times each string occured in the array. Return the object directly (no need to console.log).
+
+function countWords(inputWords) {
+   return inputWords.reduce((words, word) => {
+     if (word in words){
+       words[word]++;
+     } else {
+       words[word] = 1;
+     }
+     return words;
+   }, {});
+ }
+
+ function countWords(inputWords) {
+    return inputWords.reduce((words, word) => {
+      words[word] = ++words[word] || 1;
+      return words;
+    }, {});
+  }
+
+  function countWords(inputWords) {
+     return inputWords.reduce((words, word) => {
+       word in words ? words[word]++ : words[word] = 1;
+       return words;
+     }, {});
+   }
+ module.exports = countWords
